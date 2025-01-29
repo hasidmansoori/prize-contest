@@ -36,7 +36,14 @@ const ProductList = ({ language }) => {
   return (
     <div>
       <h1>{language === "en" ? "Product List" : "قائمة المنتجات"}</h1>
-      <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+      <ul style={{ 
+  listStyle: 'none', 
+  padding: 0, 
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'center', 
+  gap: '20px' 
+}}>
   {products.map((product) => (
     <li 
       key={product.id} 
@@ -48,7 +55,9 @@ const ProductList = ({ language }) => {
         borderRadius: '15px', 
         boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', 
         padding: '15px',
-        maxWidth: '600px'
+        maxWidth: '800px', 
+        width: '100%', 
+        marginBottom: '20px' 
       }}
     >
       {/* Left Side: Image */}
@@ -61,7 +70,7 @@ const ProductList = ({ language }) => {
       </div>
 
       {/* Right Side: Content */}
-      <div style={{ flex: '2', padding: '0 20px' }}>
+      <div style={{ flex: '2', padding: '0 20px', textAlign: 'center' }}>
         <h2 style={{ fontSize: '22px', margin: '0', color: '#000' }}>
           <span style={{ fontWeight: 'bold', color: 'red' }}>Win</span> 1 Kilogram of Gold
         </h2>
@@ -69,16 +78,21 @@ const ProductList = ({ language }) => {
           Draw Date: 24 April, 2025 or earlier based on the time passed.
         </p>
 
-        {/* Price & Button Section */}
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+        {/* Centered Price & Button Section */}
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          gap: '10px', 
+          marginTop: '10px' 
+        }}>
           <div 
             style={{ 
               background: '#FFD700', 
               padding: '10px 15px', 
               borderRadius: '20px', 
               fontWeight: 'bold', 
-              fontSize: '14px',
-              marginRight: '10px'
+              fontSize: '14px'
             }}
           >
             Buy AED7
@@ -102,6 +116,7 @@ const ProductList = ({ language }) => {
     </li>
   ))}
 </ul>
+
 
     </div>
   );
