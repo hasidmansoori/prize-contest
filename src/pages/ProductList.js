@@ -36,21 +36,73 @@ const ProductList = ({ language }) => {
   return (
     <div>
       <h1>{language === "en" ? "Product List" : "قائمة المنتجات"}</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <img 
-              src={product.imageUrl} 
-              alt={product.name} 
-              style={{ width: '200px', height: '200px' }} 
-            />
-            <p>{product.name}</p>
-            <button onClick={() => handlePurchase(product.id)}>
-              {language === "en" ? "Buy Now" : "اشترِ الآن"}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+  {products.map((product) => (
+    <li 
+      key={product.id} 
+      style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between', 
+        background: '#fff', 
+        borderRadius: '15px', 
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', 
+        padding: '15px',
+        maxWidth: '600px'
+      }}
+    >
+      {/* Left Side: Image */}
+      <div style={{ flex: '1' }}>
+        <img 
+          src={product.imageUrl} 
+          alt={product.name} 
+          style={{ width: '200px', height: '150px', borderRadius: '10px' }} 
+        />
+      </div>
+
+      {/* Right Side: Content */}
+      <div style={{ flex: '2', padding: '0 20px' }}>
+        <h2 style={{ fontSize: '22px', margin: '0', color: '#000' }}>
+          <span style={{ fontWeight: 'bold', color: 'red' }}>Win</span> 1 Kilogram of Gold
+        </h2>
+        <p style={{ fontSize: '12px', color: '#999' }}>
+          Draw Date: 24 April, 2025 or earlier based on the time passed.
+        </p>
+
+        {/* Price & Button Section */}
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+          <div 
+            style={{ 
+              background: '#FFD700', 
+              padding: '10px 15px', 
+              borderRadius: '20px', 
+              fontWeight: 'bold', 
+              fontSize: '14px',
+              marginRight: '10px'
+            }}
+          >
+            Buy AED7
+          </div>
+          <button 
+            onClick={() => handlePurchase(product.id)}
+            style={{
+              background: 'linear-gradient(to right, #6a11cb, #2575fc)',
+              color: '#fff',
+              padding: '10px 15px',
+              borderRadius: '20px',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
+
     </div>
   );
 };
